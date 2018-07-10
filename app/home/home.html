@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body ng-controller="homeCtrl">
+	<div class="container">
+	<form role="form" nonvalidate="" name="loginform">
+		<div class="form-group" ng-class="{'has-error':loginform.username.$invalid && loginform.username.$touched}">
+			<label for="username">Username</label>
+				<input ng-model="user.username" type="email" name="username" class="form-control" required="">
+				<small class="help-block" ng-show="loginform.username.$invalid && loginform.username.$touched">Please enter a valid Email Id</small>			
+						
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+				<input ng-model="user.password" type="password" name="password" class="form-control" required="" ng-minlength=8 />
+
+				<small class="help-block" ng-show="loginform.password.$error.minlength && loginform.password.$touched">Password must be atleast 8 characters</small>
+
+		</div>
+		<button type="submit" class="btn btn-success" ng-disabled='loginform.$invalid' ng-click="signin()">Sign In</button>
+	</form>
+	</div>
+</body>
+</html>
